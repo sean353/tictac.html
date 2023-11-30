@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="msg"></div>
+    <div id="msgwin"></div>
+    <div onclick="play()">
+        <button id="b1">-</button>
+        <button id="b2">-</button>
+        <button id="b3">-</button><br>
+        <button id="b4">-</button>
+        <button id="b5">-</button>
+        <button id="b6">-</button><br>
+        <button id="b7">-</button>
+        <button id="b8">-</button>
+        <button id="b9">-</button>
+    </div>
+    <div>
+    <script>
+        let turn = "X"
+        let counter = 0
+        let winner = [
+            // ["0","1","2"],
+            // ["3","4","5"],
+            // ["6","7","8"],
+            // ["0","3","6"],
+            // ["1","4","7"],
+            // ["2","5","8"],
+            // ["1","4","8"],
+            // ["2","4","6"]
+        ]
+        function play() {
+            if (event.target.innerText == "-") {
+                event.target.innerText = turn
+                turn = (turn == "X" ? "O" : "X")
+                msg.innerHTML = `<h1>Turn of player ${turn}`
+                counter++
+                checkwin()
+            }
+
+
+
+                // if (counter == 9) {
+                //     msg.innerHTML = `<h1>Tie`
+                // }
+                
+               
+                
+            }
+            function checkwin() {
+                
+                if (b1.innerText== b2.innerText && b2.innerText==b3.innerText && b1.innerText !=="-") { 
+                    winner = b1.innerText 
+                    msgwin.innerHTML=` ${winner} wins`
+
+                }
+                if (b4.innerText== b5.innerText && b5.innerText==b6.innerText && b4.innerText !=="-") { 
+                    winner = b4.innerText
+                    msgwin.innerHTML=` ${winner} wins`
+
+                }
+                if (b7.innerText== b8.innerText && b8.innerText==b9.innerText && b7.innerText !=="-") { 
+                    winner = b7.innerText
+                    msgwin.innerHTML=` ${winner} wins`
+
+                }
+                if (b1.innerText== b4.innerText && b4.innerText==b7.innerText && b1.innerText !=="-") { 
+                    winner = b1.innerText
+                    msgwin.innerHTML=` ${winner} wins`
+
+                }
+                if (b2.innerText== b5.innerText && b5.innerText==b8.innerText && b2.innerText !=="-") { 
+                    winner = b2.innerText
+                    msgwin.innerHTML=` ${winner} wins`
+
+                }
+                if (b3.innerText== b6.innerText && b6.innerText==b9.innerText && b3.innerText !=="-") { 
+                    winner = b3.innerText
+                    msgwin.innerHTML=` ${winner} wins`
+
+                }if (b1.innerText== b5.innerText && b5.innerText==b9.innerText && b1.innerText !=="-") { 
+                    winner = b1.innerText
+                    msgwin.innerHTML=` ${winner} wins`
+
+                }if (b3.innerText== b5.innerText && b5.innerText==b7.innerText && b3.innerText !=="-") { 
+                    winner = b3.innerText
+                    msgwin.innerHTML=` ${winner} wins`
+
+                    console.log(winner);
+                }else if (counter==9) {
+                    msg.innerHTML = `<h1>Tie`
+                }
+                    
+
+                
+
+                
+               
+                
+                
+            }
+        
+
+
+
+    </script>
+</body>
+
+</html>
